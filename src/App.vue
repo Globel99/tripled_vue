@@ -23,8 +23,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-
-  transition: 0.7s;
 }
 
 .bg-grey{
@@ -38,9 +36,16 @@ export default {
     display: block;
 }
 
+body{
+  transition: 0.7s;
+}
+
 @media screen and (min-width: 600px) {
     #brandName, #sideNav {
       display: none;
+    }
+    body{
+      background-color: white !important;
     }
   }
 </style>
