@@ -1,0 +1,52 @@
+._navbarList{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+._navbarList li{
+    float: left;
+}
+._navbarList li:hover{
+    background-color: lightgray;
+}
+._navbarList li a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;        
+}
+._home{
+height: 50px;
+margin: 0 1rem;
+padding: 0.5rem 0;
+}
+#brandName{
+    font-weight: bolder;
+}
+
+
+#sideNav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 51px;
+      left: 0;
+      background-color: white;
+      overflow-x: hidden;
+      transition: 0.7s;
+      padding-top: 2rem;
+  }
+  #sideNav a{
+    white-space: nowrap;
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 24px;
+  }
+  #sideNav svg{
+      color: black;
+  }
+  #sideNav *{
+      margin-left: 1.5rem;
+  }

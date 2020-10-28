@@ -1,0 +1,4 @@
+[1026/132652.203:ERROR:registration_protocol_win.cc(103)] CreateFile: A rendszer nem talï¿½lja a megadott fï¿½jlt. (0x2)
+[1026/134226.470:ERROR:registration_protocol_win.cc(103)] CreateFile: A rendszer nem talï¿½lja a megadott fï¿½jlt. (0x2)
+[1026/153211.311:ERROR:registration_protocol_win.cc(103)] CreateFile: A rendszer nem találja a megadott fájlt. (0x2)
+[1028/131046.909:ERROR:registration_protocol_win.cc(103)] CreateFile: A rendszer nem találja a megadott fájlt. (0x2)
