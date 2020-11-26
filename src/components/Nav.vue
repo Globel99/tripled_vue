@@ -40,20 +40,23 @@ export default {
     },
     methods: {
         toggleNav: function () {
+            const el = document.getElementById("greyElement")
             console.log("toggle")
-            this.toggled ? this.closeNav() : this.openNav()
+            this.toggled ? this.closeNav(el) : this.openNav(el)
         },
-        closeNav () {
+        closeNav (_el) {
             console.log("closeNav")
             this.sideNavStyle = "width: 0"
-            document.body.style.backgroundColor = "white"   
+            _el.style.display = "none"
+            _el.style.opacity = "1"
             this.toggled = false
         },
-        openNav () {
+        openNav (_el) {
             console.log("openNav")
             this.sideNavStyle = "width: 250px"
-            document.body.style.zIndex = 99
-            document.body.style.backgroundColor = "rgba(0,0,0,0.4)"
+            _el.style.display = "block"
+            _el.style.transition = "0.7s"
+            _el.style.opacity = "0.3"
             this.toggled = true
         }
     }
