@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="sticky-top">
     <nav class="p-0 pl-2 justify-content-start navbar navbar-expand-lg navbar-light bg-light border-bottom border-secondary">
         <button v-on:click="toggleNav" class="navbar-toggler" type="button" data-toggle="collapse" onclick="toggleNav()">
             <span class="navbar-toggler-icon"></span>
@@ -52,6 +52,7 @@ export default {
         openNav () {
             console.log("openNav")
             this.sideNavStyle = "width: 250px"
+            document.body.style.zIndex = 99
             document.body.style.backgroundColor = "rgba(0,0,0,0.4)"
             this.toggled = true
         }
