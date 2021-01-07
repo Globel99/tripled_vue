@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Vase from '../views/Vase.vue'
-import Case from '../views/Case.vue'
+import Info from '../views/Info.vue'
+import Item from '../views/Item.vue'
 
 Vue.use(VueRouter)
 
@@ -13,20 +13,25 @@ const routes = [
     component: Home
   },
   {
-    path: '/vaza',
-    name: 'Vase',
-    component: Vase
+    path: '/info',
+    name: 'Info',
+    component: Info
   },
   {
-    path: '/tok',
-    name: 'Case',
-    component: Case
-  },
+    path: '/termek/bagoly',
+    name: "Bagoly",
+    component: Item,
+    props: {
+      itemName: "Bagoly",
+      imageNameList: ["/bagoly.jpg"],
+      color: "bg-white"
+    }
+  }
 ]
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: "/",
   routes
 })
 

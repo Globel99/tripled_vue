@@ -1,24 +1,27 @@
 <template>
-    <div class="product-home-view" :class="color">
-        <a href="/123" class="product-link">
-            <img :src="imageName" class="product-image-home" alt="">
-            <div class="product-title pb-5">
-                {{ title }}
-            </div>
-        </a>
+    <div :class="color">
+        <div class="itemName display-4">
+            {{ itemName }}
+        </div>
+        <div class="imageContainer">
+            <img :src="imageNameList[0]" class="product-image" alt="">
+        </div>
     </div>
 </template>
 
 <script>
 export default {
-    name: "ProductHome",
-    props: ["imageName", "title", "color"]
+    name: "Item",
+    props: ["itemName", "imageNameList", "color"],
+    methods: {
+
+    }
 }
 </script>
 
 <style scoped>
 
-.product-image-home{
+.product-image{
         max-height: 400px;
         max-width: 100%;
     }
@@ -26,14 +29,12 @@ export default {
     color: black;
     text-decoration: none;
 }
-.black-home-view{
-    background-color: black;
-}
+
 
 .product-title{
     font-size: 24px;
 }
-.bg-black .product-title{
+.bg-black .itemName{
     color: white;
 }
 

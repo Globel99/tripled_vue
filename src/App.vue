@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <Nav />
-    <router-view id="routerView"></router-view>
-    <div id="greyElement" style="display: none"></div>
+    <router-view class="pt-2" id="routerView"></router-view>
   </div>
 </template>
 
@@ -38,17 +37,6 @@ export default {
 .logo{
     height: 100%;
     display: block;
-}
-
-#greyElement{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  z-index: 99;
-  transition: opacity 0.7s;
 }
 
 body{

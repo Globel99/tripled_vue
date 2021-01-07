@@ -1,31 +1,32 @@
 <template>
 <div class="sticky-top">
     <nav class="p-0 pl-2 justify-content-start navbar navbar-expand-lg navbar-light bg-light border-bottom border-secondary">
-        <button v-on:click="toggleNav" class="navbar-toggler" type="button" data-toggle="collapse" onclick="toggleNav()">
+        <button v-on:click="toggleNav" class="navbar-toggler" type="button" data-toggle="collapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <router-link to="/">
             <img class="_home" src="logo.svg" alt="">
         </router-link>
         <div id="brandName">
-            TripleD Tech
+            <router-link to="/">
+                TripleD Tech
+            </router-link>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="_navbarList" id="navbarList">
                 <li>
-                    <router-link to="/tok" class="p-3">Telefon Tokok</router-link>
-                </li>
-                <li>
-                    <router-link to="/vaza" class="p-3">Vázák</router-link>
+                    <router-link to="/info" class="p-3" v-on:click.native="onNavClick">Információ</router-link>
                 </li>
             </ul>
         </div>
     </nav>
 
     <div :style="sideNavStyle" id="sideNav">
-        <router-link to="/tok">Telefon Tokok</router-link>
-        <router-link to="/vaz">Vázák</router-link>
+        <router-link to="/info" v-on:click.native="onNavClick">Információ</router-link>
     </div>
+    
+    <div id="greyElement" :class="{fadeout: fadeout, fadein: !fadeout}" v-if="toggled === true"></div>
+    
 </div>
 </template>
 
@@ -35,33 +36,62 @@ export default {
     data() {
         return {
             toggled: false,
+            fadeout: false,
             sideNavStyle: "width: 0"
         }
     },
     methods: {
         toggleNav: function () {
-            const el = document.getElementById("greyElement")
             console.log("toggle")
-            this.toggled ? this.closeNav(el) : this.openNav(el)
+            this.toggled ? this.closeNav() : this.openNav()
         },
-        closeNav (_el) {
+        closeNav () {
             console.log("closeNav")
             this.sideNavStyle = "width: 0"
-            _el.style.display = "none"
-            _el.style.opacity = "1"
-            this.toggled = false
+            this.fadeout = true
+            setTimeout(() => {this.toggled = false}, 500)
         },
-        openNav (_el) {
+        openNav () {
             console.log("openNav")
             this.sideNavStyle = "width: 250px"
-            _el.style.display = "block"
-            _el.style.transition = "0.7s"
-            _el.style.opacity = "0.3"
+            this.fadeout = false
             this.toggled = true
+        },
+        onNavClick () {
+            console.log("onNavClick")
+            this.closeNav()
         }
     }
 }
 </script>
+
+<style scoped>
+#greyElement{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.fadeout{
+    transition: opacity 0.5s;
+    opacity: 0 !important;
+}
+
+.fadein{
+    transition: opacity 0.5s;
+    opacity: 0.5 !important;
+}
+
+nav, #sideNav{
+    z-index: 99;
+}
+</style>
 
 <style scoped src="@/assets/css/nav.css">
 </style>
